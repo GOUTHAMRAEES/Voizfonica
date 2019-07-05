@@ -1,0 +1,15 @@
+.btn{
+    text-align: end;
+    background-color: rgb(220,35,30);
+    color:white;
+}
+
+.panel-heading{
+    background-color: rgb(220,35,30);
+    color: white
+}
+.panel{
+    height: auto;
+    border: 1px solid black;
+    line-height: 50px;
+}

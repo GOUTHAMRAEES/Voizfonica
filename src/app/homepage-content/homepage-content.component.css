@@ -1,0 +1,22 @@
+img{
+    width:500px;
+    height:500px;
+}
+
+.recharge-details{
+    background-color:white;
+    text-align: center;
+    color:#ff0000;
+    font-weight: 500;
+    font-size: 20px;
+}
+button{
+    background-color:#ff0000;
+    text-align: center;
+    color:white;
+    font-weight: 500;
+    font-size: 20px;
+    border: 1px solid #ff0000;
+    width:max-content;
+    height: 80px;;
+}

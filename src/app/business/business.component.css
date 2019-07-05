@@ -1,0 +1,23 @@
+.topic{
+    background-color: teal;
+    color: white;
+}
+.panel-body{
+    height: 100px;
+}
+.panel-heading{
+    background-color: teal;
+    color:white;
+}
+.btn{
+    background-color: teal;
+    color: white;
+    padding-block: 30px;
+}
+.btn-primary{
+    background-color: teal;
+    color:white;
+}
+.panel{
+    border: 2px solid teal;
+}
