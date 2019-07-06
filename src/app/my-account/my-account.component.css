@@ -1,5 +1,5 @@
 a{
-    background-color:red;;
+    background-color:rgb(194, 69, 69);
     text-align: center;
     color:white;
     font-weight: 500;
@@ -8,4 +8,10 @@ a{
     width:160px;
     height: 100px;
     
+}
+.modal-header{
+    background-color: #72b3e9;
+}
+.modal-footer{
+    background-color: #72b3e9;
 }
