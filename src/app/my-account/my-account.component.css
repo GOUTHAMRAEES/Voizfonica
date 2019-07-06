@@ -1,10 +1,11 @@
-button{
-    background-color:#ff0000;
+a{
+    background-color:red;;
     text-align: center;
     color:white;
     font-weight: 500;
     font-size: 20px;
     border: 1px solid #ff0000;
     width:160px;
-    height: 100px;;
+    height: 100px;
+    
 }

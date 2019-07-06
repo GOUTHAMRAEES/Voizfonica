@@ -57,3 +57,9 @@
        color:white;
        font-size: 30px;
    }
+
+   h3{
+     color:red;
+     align-content: center;
+     line-height: 100px;
+   }
