@@ -1,53 +1,68 @@
+<div class="container">
+  <div class="row">
 
-<footer>
-        <div class="container"><div class="row pb-3"> <div class="col-md-6">
-    
-    <div class="footer-info"><h3 class="text-white" data-animate="fadeInUp" data-delay="0">About Us</h3>
-    
-    <p data-animate="fadeInUp" >VoizFonica is a Mobile Network Operator and telephone company. VoizFonica provides network access and telecommunication services that help people and companies communicate in an easy, efficient and environmentally friendly way.
+    <div class="col-2">
+      <div class="user-details-container">
+        <img class="user-image" src="../assets/voizfonica.png" />
+        <span class="user-title">{{userDetailsForm.get('fullname').value}}</span>
+        
+      </div>
+    </div>
 
-      VoizFonica business is very technology dependent as company acts as a network service provider (NSP)  in mobile.
-      
-      The Company offers the means to facilitate communication between people, providing them with the most secure and state of the art technology in order for them to live better, and for them to achieve whatever they resolve.
-      </p>
-    <ul class="footer-contacts list-unstyled" style="font-size: 15px">
-    <li data-animate="fadeInUp" data-delay=".1"> <i class="fas fa-phone"></i> <a href="tel:+1234567890">(+9) 876-543-210</a>, <a href="tel:+123456789">(+1) 234-567-890</a></li>
-    <li data-animate="fadeInUp" data-delay=".15"> <i class="fas fa-envelope"></i> <a href="mailto:info@voizfonica.com">info.@voizfonica.com</a></li>
-    <li data-animate="fadeInUp" data-delay=".2"> <i class="fas fa-map-marker-alt"></i> 
-    
-    <span>Across all major cities in India.
-    </span></li>
-    </ul>
-    <ul class="social-links list-inline mb-0">
-    <li data-animate="fadeInUp" data-delay=".25"><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-    <li data-animate="fadeInUp" data-delay=".3"><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-    <li data-animate="fadeInUp" data-delay=".35"><a href="#" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-    <li data-animate="fadeInUp" data-delay=".4"><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-    <li data-animate="fadeInUp" data-delay=".45"><a href="#" target="_blank"><i class="fas fa-rss"></i></a></li>
-    <li data-animate="fadeInUp" data-delay=".5"><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-    </ul>
+
+    <div class="col">
+      <h2 class="section-title">LOGIN (Existing Users)</h2>
+
+      <form [formGroup]="accountDetailsForm" novalidate (ngSubmit)="onSubmitAccountDetails(accountDetailsForm.value)">
+        <label>Username</label><br>
+        <mat-form-field class="full-width">
+          <input matInput maxlength="25"  formControlName="username" style="border:1px solid red;" required >
+          <mat-error *ngFor="let validation of account_validation_messages.username">
+            <mat-error class="error-message" *ngIf="accountDetailsForm.get('username').hasError(validation.type) && (accountDetailsForm.get('username').dirty || accountDetailsForm.get('username').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+<br>
+        <label>Mobile Number</label><br>
+        <mat-form-field class="full-width">
+          <input matInput type="text" pattern="[789][0-9]{9}"  formControlName="number" style="border:1px solid red;" required>
+          <mat-error *ngFor="let validation of account_validation_messages.email">
+            <mat-error class="error-message" *ngIf="accountDetailsForm.get('number').hasError(validation.type) && (accountDetailsForm.get('number').dirty || accountDetailsForm.get('number').touched)">{{validation.message}}</mat-error>
+          </mat-error>
+        </mat-form-field>
+<br>
+        <label>Password</label><br>
+
+        <div formGroupName="matching_passwords">
+          <mat-form-field class="full-width">
+            <input matInput type="password"  formControlName="password" style="border:1px solid red;" required>
+            <mat-error *ngFor="let validation of account_validation_messages.password">
+              <mat-error class="error-message" *ngIf="accountDetailsForm.get('matching_passwords').get('password').hasError(validation.type) && (accountDetailsForm.get('matching_passwords').get('password').dirty || accountDetailsForm.get('matching_passwords').get('password').touched)">{{validation.message}}</mat-error>
+            </mat-error>
+          </mat-form-field>
+<br>
+          <label>Confirm password</label>
+          <br>
+          <mat-form-field class="full-width">
+            <input matInput type="password"  formControlName="confirm_password"  [errorStateMatcher]="parentErrorStateMatcher" style="border:1px solid red;"  required>
+            <mat-error *ngFor="let validation of account_validation_messages.confirm_password">
+              <mat-error class="error-message" *ngIf="(accountDetailsForm.get('matching_passwords').get('confirm_password').hasError(validation.type)|| accountDetailsForm.get('matching_passwords').hasError(validation.type)) && (accountDetailsForm.get('matching_passwords').get('confirm_password').dirty || accountDetailsForm.get('matching_passwords').get('confirm_password').touched)">{{validation.message}}</mat-error>
+            </mat-error>
+          </mat-form-field>
+
+        </div>
+<br>
+
+        <mat-checkbox formControlName="terms">
+          I accept terms and conditions
+        </mat-checkbox>
+        <mat-error *ngFor="let validation of account_validation_messages.terms">
+          <mat-error class="error-message" *ngIf="accountDetailsForm.get('terms').hasError(validation.type) && (accountDetailsForm.get('terms').dirty || accountDetailsForm.get('terms').touched)">{{validation.message}}</mat-error>
+        </mat-error>
+<br>
+<a class="btn btn-link btn-outline my-2 my-sm-0 btn-lg"  routerLink="/my-account" href="#" style="color:#ff0000;font-size: 20px; font-weight: 600">Submit</a>
+
+      </form>
+
     </div>
-    </div>
-    
-    
-    
-    <div class="col-md-6">
-    
-    <div class="footer-newsletter"><h3 class="text-white" data-animate="fadeInUp" data-delay=".65">Want Frequent Updates?</h3>
-    <p data-animate="fadeInUp" data-delay=".7">Send your E-Mail address and we will send our updates & latest offers. </p>
-    <form action="https://themelooks.us13.list-manage.com/subscribe/post?u=79f0b132ec25ee223bb41835f&amp;id=f4e0e93d1d" method="post" name="mc-embedded-subscribe-form" target="_blank">
-    <div class="form-group" data-animate="fadeInUp" data-delay=".75"> 
-    <input class="form-control" type="email" name="EMAIL" placeholder="Enter Your E-mail Address" required>
-    </div>
-    <div class="subscribe-submit form-group clearfix mb-0" data-animate="fadeInUp" data-delay=".8"> <button class="btn btn-primary btn-square float-left" type="submit">Subscribe</button> 
-    <span>Don’t worry! 
-    <br>Your e-mail won’t be published.
-    </span></div> </form> </div> </div> </div>
-    <div class="bottom-footer"><div class="row">
-    <div class="col-md-5 order-last order-md-first">
-    <p class="copyright" data-animate="fadeInDown" data-delay=".85">&copy; Copyright 2019 <a href="#">Voizfonica.com</a></p>
-    </div>
-    
-    </div>
-    </div>
-    </div> </footer>
+  </div>
+</div>
